@@ -26,5 +26,13 @@
        systems: a list of systems to produce flake outputs for.
     */
     outputs-for = system-outputs: systems: foldl' recursiveUpdate {} (map system-outputs systems);
+
+    templates = {
+      basic = {
+        path = ./templates/basic;
+        description = "A basic flake config using my-flake.";
+      };
+      default = self.templates.basic;
+    };
   };
 }
